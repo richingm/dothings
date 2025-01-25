@@ -1,8 +1,16 @@
 package biz
 
-type ArticleBiz struct {
+type ArticleRepoIf interface {
 }
 
-func NewArticleBiz() *ArticleBiz {
+type ArticleBiz struct {
+	articleRepo ArticleRepoIf
+}
+
+func NewArticleBiz(articleRepo ArticleRepoIf) *ArticleBiz {
 	return &ArticleBiz{}
+}
+
+func (b *ArticleBiz) Create() {
+
 }

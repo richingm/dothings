@@ -8,13 +8,13 @@ import (
 //go:embed configs.yaml
 var configFile string
 
-var ConfigXx Config
-
-func InitConfig() {
-	err := yaml.Unmarshal([]byte(configFile), &ConfigXx)
+func InitConfig() *Config {
+	var config Config
+	err := yaml.Unmarshal([]byte(configFile), &config)
 	if err != nil {
 		panic(err)
 	}
+	return &config
 }
 
 type Config struct {
